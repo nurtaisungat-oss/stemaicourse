@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style> *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #11161d; /* Тот самый темно-синий/угольный фон */
+    color: #ffffff;
+    padding: 40px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Хлебные крошки */
+.breadcrumbs {
+    font-size: 14px;
+    color: #8a99ad;
+    margin-bottom: 20px;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.breadcrumbs a {
+    color: #e3a857; /* Оранжево-желтый оттенок для активной ссылки */
+    text-decoration: none;
+}
+
+/* Главный заголовок */
+.course-main-title {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 30px;
+    max-width: 900px;
+}
+
+/* Название модуля */
+.module-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+/* Сетка карточек */
+.lessons-grid {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+/* Карточка */
+.lesson-card {
+    background-color: transparent;
+    width: calc(33.333% - 16px); /* 3 карточки в ряд */
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Превью область (зеленая плашка) */
+.card-preview {
+    background-image: url("stemimage.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 180px;
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.card-preview:hover {
+    transform: translateY(-4px);
+}
+
+/* Галочка статуса */
+.status-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+.status-badge.completed {
+    background-color: #22c55e;
+    color: #ffffff;
+}
+
+/* Кнопка Play (треугольник) */
+
+/* Текстовая часть карточки */
+.card-body {
+    padding: 15px 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-grow: 1;
+}
+
+.lesson-topic {
+    font-size: 15px;
+    line-height: 1.4;
+    color: #e2e8f0;
+    font-weight: 500;
+}
+
+/* Нижние шильдики (баджи) */
+.badge {
+    align-self: flex-start;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-success {
+    background-color:#3b82f6;
+    color: #ffffff;
+}
+
+.badge-primary {
+    background-color: #3b82f6;
+    color: #ffffff;
+}
+
+/* Адаптивность под планшеты и мобилки */
+@media (max-width: 992px) {
+    .lesson-card {
+        width: calc(50% - 12px);
+    }
+}
+
+@media (max-width: 600px) {
+    .lesson-card {
+        width: 100%;
+    }
+}
+.modal{
+    display:none;
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,0.7);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.modal-content{
+    background:#11161d;
+
+    width:400px;
+
+    padding:30px;
+
+    border-radius:16px;
+
+    text-align:center;
+
+    color:white;
+}
+
+.modal-content input{
+    width:100%;
+    padding:12px;
+    margin:20px 0;
+
+    border:none;
+    border-radius:8px;
+}
+
+.modal-content button{
+    padding:12px 20px;
+    margin:5px;
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+</style>
+    <div class="container">
+        <!-- Хлебные крошки -->
+        <nav class="breadcrumbs">
+            <a href="stem.html">Stem курсы</a> &gt; <span>«Жасанды интеллект және STEM – білім берудегі интеграцияланған модель» біліктілікті арттыру курсы</span>
+        </nav>
+
+        <!-- Заголовок курса -->
+        <h1 class="course-main-title">
+            «Жасанды интеллект және STEM – білім берудегі интеграцияланған модель» біліктілікті арттыру курсы
+        </h1>
+
+        
+        <!-- Сетка карточек (Lessons Grid) -->
+        <div class="lessons-grid">
+            
+            <!-- Карточка 1 -->
+            <div class="lesson-card">
+                <a href="#" class="card-preview"
+   onclick="openModal('theme1.html')">
+            
+                    </a>
+                <div class="card-body">
+                    <p class="lesson-topic">Тақырып 1.1. STEM білім беру түсінігі, маңызы, білім беру ерекшеліктері</p>
+                    <span class="badge badge-success">Процесс қадам</span>
+                </div>
+            </div>
+
+            <!-- Карточка 2 -->
+            <div class="lesson-card">
+                <div class="card-preview">
+                </div>
+                <div class="card-body">
+                    <p class="lesson-topic">Тақырып 1.2. 5E циклін қолдана отырып зерттеушілік жүйесін оқыту</p>
+                    <span class="badge badge-success">Процесс қадам</span>
+                </div>
+            </div>
+
+            <!-- Карточка 3 -->
+            <div class="lesson-card">
+                <div class="card-preview">
+                </div>
+                <div class="card-body">
+                    <p class="lesson-topic">Тақырып 1.3. Инженерлік жобалау жұмыстарының түрлерімен жүзеге асыру жолдары</p>
+                    <span class="badge badge-primary">Процесс қадам</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="container">
+        
+        <div class="lessons-grid">
+            
+            <!-- Карточка 1 -->
+            <div class="lesson-card">
+                <div class="card-preview">
+                </div>
+                <div class="card-body">
+                    <p class="lesson-topic">Тақырып 2.1. Проблемаға негізделген оқыту(PBL)</p>
+                    <span class="badge badge-success">Процесс қадам</span>
+                </div>
+            </div>
+
+            <!-- Карточка 2 -->
+            <div class="lesson-card">
+                <div class="card-preview">
+                </div>
+                <div class="card-body">
+                    <p class="lesson-topic">Тақырып 2.2. ЖИ көмегімен сабақты тиімді жоспарлау, математикалық есептерді тексеруді автоматтандыру</p>
+                    <span class="badge badge-success">Процесс қадам</span>
+                </div>
+            </div>
+
+            <!-- Карточка 3 -->
+            <div class="lesson-card">
+                <div class="card-preview">
+                </div>
+                <div class="card-body">
+                    <p class="lesson-topic">Тақырып 2.3. Сабақ барысында қолданатын ЖИ ресурстары</p>
+                    <span class="badge badge-primary">Процесс қадам</span>
+                </div>
+            </div>
+
+        </div>
+
+<div id="promoModal" class="modal">
+
+    <div class="modal-content">
+
+        <h2>Курсқа кіру</h2>
+
+        <p>Промокодты енгізіңіз</p>
+
+        <input
+            type="text"
+            id="promoInput"
+            placeholder="Промокод">
+
+        <button onclick="checkPromo()">
+            Кіру
+        </button>
+
+        <button onclick="closeModal()">
+            Жабу
+        </button>
+
+    </div>
+
+</div>
+<script>
+
+
+
+let targetLesson = "";
+
+function openModal(lesson){
+
+    targetLesson = lesson;
+
+    document.getElementById("promoModal")
+        .style.display = "flex";
+}
+
+function closeModal(){
+
+    document.getElementById("promoModal")
+        .style.display = "none";
+}
+
+function checkPromo(){
+
+    const code =
+        document.getElementById("promoInput").value;
+
+    if(code === "STEM2026"){
+
+        window.location.href = targetLesson;
+
+    }else{
+
+        alert("Қате промокод!");
+    }
+}
+
+
+
+</script>
+
+</body>
+</html>

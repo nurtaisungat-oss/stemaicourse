@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цифрлық ортада математиканы оқыту: STEM және AI тандымы</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            flex-direction: column;
+            transition: all 0.5s ease;
+            background: linear-gradient(rgba(130, 180, 255, 0.7), rgba(130, 180, 255, 0.7)), 
+                        url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(130, 180, 255, 0.5);
+            z-index: -1;
+        }
+
+        .logos {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: right;
+            padding: 0 30px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+        
+        .logos1 {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: left;
+            padding: 0 30px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        .logo {
+            height: 150px;
+            width: auto;
+            opacity: 0.5;
+        }
+
+        .title {
+            font-size: 32px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 15px 30px;
+            border-radius: 15px;
+            max-width: 80%;
+        }
+
+        .top-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, auto); 
+            justify-content: center;                
+            gap: 18px;                              
+        }           
+
+
+        .btn-container {
+            display: grid;
+            grid-template-columns: repeat(2, auto); 
+            justify-content: center;                
+            gap: 18px;
+            opacity: 0;
+            
+        }
+
+        .btn-container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .main-btn {
+            position: relative;
+            padding: 22px 44px;
+            color: #fff;
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            border: none;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(45deg, #ff00cc, #00ccff);
+        }
+
+        .stem-btn {
+            position: relative;
+            padding: 22px 44px;
+            color: #fff;
+            background: linear-gradient(45deg, #FF5722, #FF9800);
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        
+        }
+        
+        .back-btn {
+            position: relative;
+            padding: 18px 18px;
+            color: #fff;
+            background: linear-gradient(45deg, #FF5722, #FF9800);
+            border: none;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        
+        }
+
+        .stem-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(45deg, #FF5722, #FFC107);
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(45deg, #FF5722, #FFC107);
+        }
+
+        .secondary-btn {
+            padding: 18px 36px;
+            color: #fff;
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            border: none;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            background-color: rgba(255, 255, 255, 0.1);
+            min-width: 180px;
+        }
+
+        .secondary-btn:nth-child(2) {
+            background: linear-gradient(45deg, #2196F3, #03A9F4);
+        }
+
+        .secondary-btn:nth-child(3) {
+            background: linear-gradient(45deg, #FF5722, #FF9800);
+        }
+
+        .secondary-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="logos1">
+        <img src="логотип коркыты.jpeg" alt="korkyt" class="logo">
+    </div>
+
+    <div class="logos">
+        <img src="1логотип школы.png" alt="187 мектеп эмблемасы" class="logo">
+    </div>
+    
+    <h1 class="title">Цифрлық ортада математиканы оқыту:<br>STEM және AI тандемы</h1>
+    
+    <div class="top-buttons">
+        <button class="stem-btn" id="mainBtn">
+            <span>Контекстті есептер</span>
+        </button>
+        <button class="stem-btn" id="stemBtn">
+            <span>STEM практика</span>
+        </button>
+        <button class="stem-btn" id="courseBtn">
+            <span>Курс</span>
+        </button>  
+        <button class="stem-btn" id="classvrBtn">
+            <span>ClassVr</span>
+        </button>
+        <button class="stem-btn" id="itmathBtn">
+            <span>IT математика</span>
+        <button class="stem-btn" id="qaztarBtn">
+            <span>Qaztar</span>
+        
+    </div>
+
+    <div class="btn-container" id="btnContainer">
+        <button class="secondary-btn" id="btn1">Бөшке есебі</button>
+        <button class="secondary-btn" id="btn2">Блок есебі</button>
+        <button class="secondary-btn" id="btn3">Ғимарат есебі</button>
+        <button class="back-btn" id="backbtn">
+            <span>&#8592;Артқа қайту </span>
+    </div>
+
+    <script>
+        const mainBtn = document.getElementById('mainBtn');
+        const stemBtn = document.getElementById('stemBtn');
+        const btnContainer = document.getElementById('btnContainer');
+        const btn1 = document.getElementById('btn1');
+        const btn2 = document.getElementById('btn2');
+        const btn3 = document.getElementById('btn3');
+        const backbtn = document.getElementById('backbtn');
+
+        let currentMode = 'context';
+
+        function updateButtons() {
+            if (currentMode === 'context') {
+                btn1.textContent = 'Бөшке есебі';
+                btn2.textContent = 'Блок есебі';
+                btn3.textContent = 'Ғимарат есебі';
+                backbtn.textContent=' Артқа қайту';
+            
+                mainBtn.style.background = 'linear-gradient(45deg, #9C27B0, #673AB7)';
+                stemBtn.textContent = 'STEM практика';
+                stemBtn.style.background = 'linear-gradient(45deg, #FF5722, #FF9800)';
+            } else if (currentMode === 'stem') {
+                btn1.textContent = 'Болашақтағы мектеп макеті';
+                btn2.textContent = 'Қағаз ракета ұшыру';
+                btn3.textContent = 'Мармелад көпірі';
+                backbtn.textContent=' Артқа қайту';
+        
+                stemBtn.style.background = 'linear-gradient(45deg, #FF5722, #FFC107)';
+                mainBtn.textContent = 'Контекстті есептер';
+                mainBtn.style.background = 'linear-gradient(45deg, #ff00cc, #3333ff)';
+            } else if (currentMode === 'itmath') {
+                btn1.textContent = 'IT математика';
+                btn2.textContent = 'Қызылорда геометриясы';
+                btn3.style.display = 'none';
+                backbtn.textContent='Артқа қайту';
+            }
+            else if (currentMode === 'course') {
+                btn1.textContent = 'ЖИ каталогы';
+                btn2.textContent = 'Stem курсы';
+                btn3.style.display = 'none';
+                backbtn.textContent= ' Артқа қайту';
+                
+            }
+
+        }
+
+        mainBtn.addEventListener('click', () => {
+            currentMode = 'context';
+            updateButtons();
+            btnContainer.classList.add('show');
+            mainBtn.style.display = 'none';
+            courseBtn.style.display = 'none';
+            classvrBtn.style.display = 'none';
+            itmathBtn.style.display = 'none';
+            qaztarBtn.style.display = 'none';
+            stemBtn.style.display = 'none';
+        });
+
+        stemBtn.addEventListener('click', () => {
+            currentMode = 'stem';
+            updateButtons();
+            btnContainer.classList.add('show');
+            mainBtn.style.display = 'none';
+            courseBtn.style.display = 'none';
+            classvrBtn.style.display = 'none';
+            itmathBtn.style.display = 'none';
+            qaztarBtn.style.display = 'none';
+            stemBtn.style.display = 'none';
+        });
+
+        itmathBtn.addEventListener('click', () => {
+            currentMode = 'itmath';
+            updateButtons();
+            btnContainer.classList.add('show');
+            mainBtn.style.display = 'none';
+            courseBtn.style.display = 'none';
+            classvrBtn.style.display = 'none';
+            itmathBtn.style.display = 'none';
+            qaztarBtn.style.display = 'none';
+            stemBtn.style.display = 'none';
+        });
+
+        courseBtn.addEventListener('click', () => {
+            currentMode = 'course';
+            updateButtons();
+            btnContainer.classList.add('show');
+            mainBtn.style.display = 'none';
+            courseBtn.style.display = 'none';
+            classvrBtn.style.display = 'none';
+            itmathBtn.style.display = 'none';
+            qaztarBtn.style.display = 'none';
+            stemBtn.style.display = 'none';
+        });
+        
+    
+        
+    document.getElementById("classvrBtn").onclick = function() {
+    window.location.href = "https://portal.classvr.com/connect/player/index.cfm";
+  };
+        
+       document.getElementById("qaztarBtn").onclick = function() {
+    window.location.href = "https://qaz-tar.vercel.app/";
+  };
+        btn1.addEventListener('click', () => {
+            if (currentMode === 'context') {
+                window.open('Boshke.html', '_self');
+            } else if (currentMode === 'stem') {
+                window.open('STEM_Boshke.html', '_self');
+            } else if (currentMode === 'itmath') {
+                window.location.href = "https://drive.google.com/drive/folders/1lz6xYHxx1OoCAL6vqlBFGiFSzVmPK2Y7?hl=ru";
+            }
+            else if (currentMode === 'course') {
+                window.location.href = "https://sites.google.com/view/zhasandy-intellekt-187/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F-%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0";
+            }
+
+        });
+
+        btn2.addEventListener('click', () => {
+            if (currentMode === 'context') {
+                window.open('Blok.html', '_self');
+            } else if (currentMode === 'stem') {
+                window.open('STEM_Blok.html', '_self');
+            } else if (currentMode == 'itmath') {
+                window.location.href = "https://sketchfab.com/M.Shoqai.atyndagy.mektep/models";
+            } else if (currentMode == 'course') {
+                window.open('stem.html', '_self');
+            }
+        });
+
+        btn3.addEventListener('click', () => {
+            if (currentMode === 'context') {
+                window.open('Gimarat.html', '_self');
+            } else if (currentMode === 'stem') {
+                window.open('STEM_Gimarat.html', '_self');
+            }
+         });
+
+         backbtn.addEventListener('click', () => {
+            if (currentMode === 'context') {
+                window.open('index.html', '_self');
+            } else if (currentMode === 'stem') {
+                window.open('index.html', '_self');
+            }  else if (currentMode === 'itmath') {
+                window.open('index.html', '_self');
+            }  else if (currentMode === 'course') {
+                window.open('index.html', '_self');
+            }
+            
+        });
+    </script>
+</body>
+</html>
