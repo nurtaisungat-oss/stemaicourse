@@ -207,6 +207,15 @@ body {
 
     cursor:pointer;
 }
+#theme1{
+    background-image: url("stemimage.jpeg");
+}
+#theme2{
+    background-image: url("theme2ph.jpeg");
+}
+#theme3{
+    background-image: url("theme3ph.jpeg");
+}
 
 </style>
     <div class="container">
@@ -226,7 +235,7 @@ body {
             
             <!-- Карточка 1 -->
             <div class="lesson-card">
-                <a href="#" class="card-preview"
+                <a href="#" class="card-preview" id="theme1"
    onclick="openModal('theme1.html')">
             
                     </a>
@@ -238,8 +247,9 @@ body {
 
             <!-- Карточка 2 -->
             <div class="lesson-card">
-                <div class="card-preview">
-                </div>
+                <a href="#" class="card-preview" id="theme2"
+   onclick="openModal('theme2.html')">
+                    </a>
                 <div class="card-body">
                     <p class="lesson-topic">Тақырып 1.2. 5E циклін қолдана отырып зерттеушілік жүйесін оқыту</p>
                     <span class="badge badge-success">Процесс қадам</span>
@@ -248,8 +258,9 @@ body {
 
             <!-- Карточка 3 -->
             <div class="lesson-card">
-                <div class="card-preview">
-                </div>
+                <a href="#" class="card-preview" id="theme3"
+   onclick="openModal('theme3.html')">
+                    </a>
                 <div class="card-body">
                     <p class="lesson-topic">Тақырып 1.3. Инженерлік жобалау жұмыстарының түрлерімен жүзеге асыру жолдары</p>
                     <span class="badge badge-primary">Процесс қадам</span>
@@ -267,7 +278,7 @@ body {
             
             <!-- Карточка 1 -->
             <div class="lesson-card">
-                <div class="card-preview">
+                <div class="card-preview" onclick="alert">
                 </div>
                 <div class="card-body">
                     <p class="lesson-topic">Тақырып 2.1. Проблемаға негізделген оқыту(PBL)</p>
