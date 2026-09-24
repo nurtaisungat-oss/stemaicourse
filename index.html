@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Цифрлық ортада математиканы оқыту: STEM және AI тандымы</title>
+    <title>STEM + AI</title>
     <style>
         body {
             display: flex;
@@ -66,8 +66,8 @@
             margin-bottom: 30px;
             text-align: center;
             background-color: rgba(0, 0, 0, 0.5);
-            padding: 15px 30px;
-            border-radius: 15px;
+            padding: 15px 100px;
+            border-radius: 35px;
             max-width: 80%;
         }
 
@@ -203,7 +203,7 @@
         <img src="1логотип школы.png" alt="187 мектеп эмблемасы" class="logo">
     </div>
     
-    <h1 class="title">Цифрлық ортада математиканы оқыту:<br>STEM және AI тандемы</h1>
+    <h1 class="title">STEM + AI</h1>
     
     <div class="top-buttons">
         <button class="stem-btn" id="mainBtn">
@@ -221,7 +221,7 @@
         <button class="stem-btn" id="itmathBtn">
             <span>IT математика</span>
         <button class="stem-btn" id="qaztarBtn">
-            <span>Qaztar</span>
+            <span>ЖИ каталогы</span>
         
     </div>
 
@@ -269,13 +269,7 @@
                 btn3.style.display = 'none';
                 backbtn.textContent='Артқа қайту';
             }
-            else if (currentMode === 'course') {
-                btn1.textContent = 'ЖИ каталогы';
-                btn2.textContent = 'Stem курсы';
-                btn3.style.display = 'none';
-                backbtn.textContent= ' Артқа қайту';
-                
-            }
+            
 
         }
 
@@ -315,26 +309,19 @@
             stemBtn.style.display = 'none';
         });
 
-        courseBtn.addEventListener('click', () => {
-            currentMode = 'course';
-            updateButtons();
-            btnContainer.classList.add('show');
-            mainBtn.style.display = 'none';
-            courseBtn.style.display = 'none';
-            classvrBtn.style.display = 'none';
-            itmathBtn.style.display = 'none';
-            qaztarBtn.style.display = 'none';
-            stemBtn.style.display = 'none';
-        });
+       
+        
         
     
         
     document.getElementById("classvrBtn").onclick = function() {
     window.location.href = "https://portal.classvr.com/connect/player/index.cfm";
   };
-        
+        document.getElementById("courseBtn").onclick = function() {
+    window.open('stem.html', '_self');
+  };
        document.getElementById("qaztarBtn").onclick = function() {
-    window.location.href = "https://qaz-tar.vercel.app/";
+    window.location.href = "https://sites.google.com/view/zhasandy-intellekt-187/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F-%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0";
   };
         btn1.addEventListener('click', () => {
             if (currentMode === 'context') {
@@ -344,10 +331,7 @@
             } else if (currentMode === 'itmath') {
                 window.location.href = "https://drive.google.com/drive/folders/1lz6xYHxx1OoCAL6vqlBFGiFSzVmPK2Y7?hl=ru";
             }
-            else if (currentMode === 'course') {
-                window.location.href = "https://sites.google.com/view/zhasandy-intellekt-187/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F-%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0";
-            }
-
+            
         });
 
         btn2.addEventListener('click', () => {
@@ -357,9 +341,8 @@
                 window.open('STEM_Blok.html', '_self');
             } else if (currentMode == 'itmath') {
                 window.location.href = "https://sketchfab.com/M.Shoqai.atyndagy.mektep/models";
-            } else if (currentMode == 'course') {
-                window.open('stem.html', '_self');
-            }
+            } 
+            
         });
 
         btn3.addEventListener('click', () => {
@@ -377,9 +360,7 @@
                 window.open('index.html', '_self');
             }  else if (currentMode === 'itmath') {
                 window.open('index.html', '_self');
-            }  else if (currentMode === 'course') {
-                window.open('index.html', '_self');
-            }
+            }  
             
         });
     </script>
